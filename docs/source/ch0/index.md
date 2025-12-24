@@ -50,23 +50,6 @@ to-be-english: true
 
 
 
-## 如何参透书中复杂的 UML 图
-
-:::{figure-md} 如何参透书中复杂的 UML 图
-
-<img src="/arch/event-driven/event-driven.assets/abstract-event-model.drawio.svg" alt="如何参透书中复杂的 UML 图">
-
-*如何参透书中复杂的 UML 图*
-:::
-*[用 Draw.io 打开](https://app.diagrams.net/?ui=sketch#Uhttps%3A%2F%2Fagentgateway-insider.mygraphql.com%2Fzh_CN%2Flatest%2F_images%2Fabstract-event-model.drawio.svg)*
-
-由于本书有的图比较复杂。我花了大量时间研究的结果都以各种方式记录在各个图中了。以上图为例，要读出图中的信息，就算我自己放下图一年后，也得花很多心思。所以，这种图得用 “参透” 这个词。但也有一些方法：
-
-1. 阅读图例
-2. 设计期静态结构与关系
-   1. 浏览图中各组件（class），尝试记住它们的名字。浏览各组件（class）的属性。通过上面信息，尝试解读组件的职责。
-   2. 对于 UML 图，浏览组件（class） 之间的继承/实现/组合(Composition)/聚合(Aggregation)
-3. 浏览运行期流程与关系。包括控制流与数据流
 
 
 

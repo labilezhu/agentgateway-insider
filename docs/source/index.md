@@ -4,18 +4,17 @@
 
 ## 本书概述
 
-本书名为《Agentgateway 内幕》，英文名《Agentgateway Proxy Insider》。这是一本编写中的书，现在草稿阶段。它是一本专注于 Agentgateway Proxy 机制和实现深入探讨的书。内容主要源于我之前写的《[Agentgateway & Agentgateway 内幕》](https://istio-insider.mygraphql.com/zh-cn/latest/)一书。现在把 Agentgateway 部分单独抽出来，重新整理成一本书。这样做的目的是为了让读者更专注于 Agentgateway 的内容，而免受 Agentgateway 的干扰。有些内容也是 Agentgateway 无关或不适用的。所以现在独立成书。**以后《Agentgateway & Agentgateway 内幕》一书将只更新 Agentgateway 相关的内容。而把 Agentgateway 相关的内容更新都移到这本书《Agentgateway 内幕》上。**
+本书名为《Agentgateway 内幕》，英文名《Agentgateway Insider》。这是一本编写中的书，现在草稿阶段。它是一本专注于 Agentgateway Proxy 机制和实现深入探讨的书。
 
 ### 本书是什么
 
 本书内容包括：Agentgateway 源码分析、深入 Agentgateway 基本原理解构与分析。但不是一本传统的《深入 xyz 源码》类型的书。甚至可以说，我尽了最大的努力少在书中直接贴源码。看源码是掌握实现细节必须的一步，但在书中浏览源码的体验一般非常糟糕，本书更多使用源码导航图来让读者了解实现的全流程，而非迷失于碎片式的源码片段细节当中而忘记全貌。
 
 本书中，我尝试以设计与实现角度，尽量系统地去说明：
-- Agentgateway 设计/进化的原由
 - Agentgateway 的设计与实现细节
 
 
-书里说的，只是在我研究与使用了 Agentgateway 一段时间后，的思考与记录。我只是排查过一些 Agentgateway/Agentgateway 相关的功能与性能问题，浏览和 Debug 过一些 Agentgateway/Agentgateway 的代码。
+书里说的，只是在我研究与使用了 Agentgateway 一段时间后，的思考与记录。我只是排查过一些 Agentgateway 相关的功能与性能问题，浏览和 Debug 过一些 Agentgateway 的代码。
 
 在研究 Agentgateway 过程中。发现网上是有很多非常有价值的资讯。但是，要么主要是从使用者出发，没说实现机理；要么就是说了机理，也说得很好，但内容缺少系统化和连贯性。
 
@@ -40,20 +39,9 @@
 
 
 
-本书同步在以下平台发布：
-
-- [Agentgateway Insider English Edition on Amazon Kindle](https://www.amazon.com/dp/B0D6KZ3RNN)
-- [《Agentgateway 内幕》中文版本 @ salttiger.com](https://salttiger.com/istio-agentgateway-%e5%86%85%e5%b9%95/#more-22178)
-
-
-
-在这里感谢 https://salttiger.com/ 站长为本书提供了更多被读者了解的机会。在大平台被垄断的时代，为知识提供了一个平凡人可及的平台更是难得。
-
-
-
 ### 关于作者
 
-我叫 Mark Zhu，一个中年且头发少的程序员。我不是 Agentgateway 专家，充其量只是 Agentgateway Docs 的 Contributors。连互联网大厂员工也不是。
+我叫 Mark Zhu，一个中年且头发少的程序员。我不是 Agentgateway 专家，充其量只是 Agentgateway Issues 的 Contributors。连互联网大厂员工也不是。
 
 为什么水平有限还学人家写书？因为这句话：
 > 你不需要很厲害才能開始，但你需要開始才會很厲害。
@@ -75,8 +63,6 @@ Blog: [https://blog.mygraphql.com/](https://blog.mygraphql.com/)
 如果你也对编写本书有兴趣，欢迎联系我。本书的出发点不是刷简历，也没这个能力。而且，这样的非`短平快` 且 `TL;DR` 书籍注定是小众货。
 
 
-#### 感谢提出 Issue 的同学 🌻
-- [使众行者](https://github.com/tanjunchen)：对阅读体验和排版提出很多非常好的意见。
 
 ### Dedication 💞
 
@@ -84,6 +70,7 @@ First, to my dear parents, for showing me how to live a happy
 and productive life. To my dear wife and our amazing kid – thanks for all your love and patience.
 
 ### Copyleft 声明
+
 无论是文字还是图片，如果转载或修改，请注明原出处。
 
 ### 意见反馈
@@ -92,10 +79,6 @@ and productive life. To my dear wife and our amazing kid – thanks for all your
 [https://github.com/labilezhu/agentgateway-insider/issues](https://github.com/labilezhu/agentgateway-insider/issues)
 
 
-
-## English version
-
-There is an English version: [https://agentgateway-insider.mygraphql.com/en/latest/](https://agentgateway-insider.mygraphql.com/en/latest/)
 
 
 ![](wechat-reward-qrcode.jpg)
@@ -112,18 +95,7 @@ There is an English version: [https://agentgateway-insider.mygraphql.com/en/late
 :includehidden:
 
 ch0/index
-agentgateway-overview.md
-agentgateway-istio-conf-eg.md
-agentgateway-high-level-flow/agentgateway-high-level-flow.md
-arch/arch.md
-req-resp-flow-timeline/req-resp-flow-timeline.md
-connection-life/connection-life.md
-agentgateway-istio-metrics/index.md
-upstream/upstream.md
-socket/socket.md
-performance/performance.md
-disruptions/disruptions.md
-observability/observability.md
-troubleshooting/troubleshooting.md
-dev-agentgateway/dev-agentgateway.md
+src-overview/src-overview.md
+app-life/app-life.md
+http-proxy/http-proxy.md
 ```
