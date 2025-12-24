@@ -8,16 +8,6 @@
 由于我对 Rust ，特别是 tokio 的异步程序风格了解有限，如其中有错漏，还请指出。
 
 
-
-AI Agent 总线网关 agentgateway 实现分析 系列：
-
-1. [AI Agent 总线网关 agentgateway 实现分析 Part 1](https://blog.mygraphql.com/zh/posts/ai/ai-devops/agent-gateway/agentgateway-impl/)
-2. AI Agent 总线网关 agentgateway 实现分析 Part 2（本文）
-
-建议顺序阅读。
-
-
-
 ## 引
 
 如果让你开发一个 Reverse Http Proxy。你觉得最困难、最复杂的设计是什么？是线程模型？协议解码？流控Buffer ?  我觉得是如何让服务优雅关闭(Drain)，甚至不断连接热升级。
