@@ -15,7 +15,6 @@ config:
     level: debug
     fields:
       add:
-        test_mark: '"test-mark"'
         span.name: '"openai.chat"'
         # openinference.span.kind: '"LLM"'
         llm.system: 'llm.provider'
@@ -29,7 +28,6 @@ config:
         llm.input_messages: 'flattenRecursive(llm.prompt.map(c, {"message": c}))'
         gen_ai.prompt: 'flattenRecursive(llm.prompt)'
         llm.output_messages: 'flattenRecursive(llm.completion.map(c, {"role":"assistant", "content": c}))'
-        mark.zhu: '"mark zhu is here"'    
   adminAddr: "0.0.0.0:15000"  # Try specifying the full socket address
 
   tracing:
@@ -39,7 +37,6 @@ config:
     clientSampling: true
     fields:
       add:
-        test_mark: '"test-mark"'
         span.name: '"openai.chat"'
         # openinference.span.kind: '"LLM"'
         llm.system: 'llm.provider'
@@ -53,7 +50,6 @@ config:
         llm.input_messages: 'flattenRecursive(llm.prompt.map(c, {"message": c}))'
         gen_ai.prompt: 'flattenRecursive(llm.prompt)'
         llm.output_messages: 'flattenRecursive(llm.completion.map(c, {"role":"assistant", "content": c}))'
-        mark.zhu: '"mark zhu is here"'
 binds:
 - port: 3100
   listeners:
