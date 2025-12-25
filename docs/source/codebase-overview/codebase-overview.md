@@ -1,4 +1,4 @@
-# agentgateway 项目源码概览
+# agentgateway 源码库概览
 
 
 ![图：agentgateway 代理 Agent 的对外连接，包括 MCP 服务器、AI Agent 和 OpenAPI](./index.assets/architecture.svg)
@@ -153,96 +153,6 @@ Additionally, it ensures maintainers do not waste time reviewing low-quality AI-
 
 
 
-## 开发环境
-
-我用 vscode container 。因为其中有 `.devcontainer.json` ，在 container 中运行开发环境的好处是，每个开发环境一配置都是一致，减少了很多依赖问题、工具链问题、版本问题、沟通成本。
-
-阅读源码，特别是 Rust 特别是 tokio 异步程序风格的源码。我需要在 vscode 安装一个 AI 先生：Gemini Code Assist
-
-
-### Build agentgateway
-
-agentgateway 自带一个 web 管理界面项目： `agentgateway/ui` 。它需要单独构建。构建需要安装 `npm` 。 具体说明见：`ui/README.md` 。 如果你用的是 vscode container ：
-```bash
-sudo apt update
-sudo apt install npm
-
-npm install
-```
-
-### Debug agentgateway
-
-vscode 会生成 launch.json :
-
-```json
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug executable 'agentgateway'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=agentgateway",
-                    "--package=agentgateway-app",
-                    "--features",
-                    "agentgateway/ui"
-                ],
-                "filter": {
-                    "name": "agentgateway",
-                    "kind": "bin"
-                }
-            },
-            "args": ["--file", "/workspaces/agentgateway/examples/basic/labile-config.yaml"],
-            "cwd": "${workspaceFolder}",
-        },
-```
-
-
-
-需要注意的是，我在 cargo 配置中加入了 `--features` 。 这相当于 C++ 项目的 MACRO 配置。要打开 `agentgateway/ui` 才有 ui 功能，以下 `crates/agentgateway/src/app.rs` 代码才生效：
-
-```rust
-	#[cfg(feature = "ui")]
-	admin_server.set_admin_handler(Arc::new(crate::ui::UiHandler::new(config.clone())));
-	#[cfg(feature = "ui")]
-	info!("serving UI at http://{}/ui", config.admin_addr);
-```
-
-
-
-
-
-## 实现分解
-
-如果以上内容被你怀疑是 AI 生成的，那么以下就是人类手写的本文核心内容。
-
-
-
-### 初始化流程
-
-下面说说初始化流程和线程模型。主要的线程有三类：
-
-- main thread，线程名 agentgateway
-- main spawn thread，线程名也是 agentgateway
-- agentgateway workers，线程名格式： agentgateway-N 
-
-
-:::{figure-md}
-:class: full-width
-
-<img src="index.assets/agentgateway.drawio.svg" alt="图：Agentgateway 初始化流程">
-
-*图：Agentgateway 初始化流程*  
-:::
-*[用 Draw.io 打开](https://app.diagrams.net/?ui=sketch#Uhttps%3A%2F%2Fagentgateway-insider.mygraphql.com%2Fzh_CN%2Flatest%2F_images%2Fagentgateway.drawio.svg)*
-
-
-浏览这种 Rust + tokio 异步编程风格的代码，对于 rust 新手，是有点废脑。好在我之前学过 golang 的 Goroutines。大概看到门路。每线程可以在线程上下文中绑定一个 [tokio::runtime::Runtime](https://docs.rs/tokio/1.47.1/tokio/runtime/index.html) （相当于一个带线程池的 scheduler）。只要关注所有 “spawn” 相关的代码。
-
-
-
-
-
 ## AI 读代码大法
 
 这种 Rust + tokio 异步编程风格的代码对于新手，不太友好。所以我在 vscode 安装一个 AI 助手：Gemini Code Assist。这使我不需要先阅读一本厚厚的 Rust 书，才开始阅读项目代码。这样直接读开源代码去学习编程语言的方法，也比之前一步步踏实学习语言有趣得多（虽然有时感觉不踏实）。如果你觉得 Vibe Coding 有点荒谬，那么 Vibe Code Reading 就相对靠谱得多。以下展示一些实例：
@@ -251,9 +161,22 @@ vscode 会生成 launch.json :
 
 和搜索引擎的区别是，他直接在工作的 context 信息下，回答问题。而不需要人为提炼出信息出来。或者，在 AI 普及年代，会提问题变得更重要。
 
+## 结语
+
+我深度研究过 Envoy Proxy 的 C++ 代码。可以说，它重度使用了 基于 OOP 和多态的设计方法，基于事件驱动 Callback 的组件子系统解藕方法。这让代码看起来比较沉长，概念术语词汇繁多，有时已经有点 Java 的感觉了。
+
+而 agentgateway 或者是其参考设计的项目 [Istio ztunnel](https://github.com/istio/ztunnel) （这两个项目有共同的公司 Solo.io 以及共同的开发者 John Howard） 使用了 Tokio + Rust async，则有点像 Golang 的 goroutines 。Reddit 上有一个比较：[How Tokio works vs go-routines?](https://www.reddit.com/r/rust/comments/12c2mfx/how_tokio_works_vs_goroutines/) 。
+
+单从代码阅读上，风格简单，实用主义，不过度造作的  Tokio + Rust async 似乎更容易上手。当然前提是了解基本的 Rust async + Tokio 。
+
+
 
 
 ## 参考
 
 - [tokio tutorial](https://tokio.rs/tokio/tutorial/spawning)
 
+
+```{toctree}
+dev-env/dev-env.md
+```

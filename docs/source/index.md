@@ -6,6 +6,11 @@
 
 本书名为《Agentgateway 内幕》，英文名《Agentgateway Insider》。这是一本编写中的书，现在草稿阶段。它是一本专注于 Agentgateway Proxy 机制和实现深入探讨的书。
 
+### 为什么要研究 agentgateway
+
+这是个好问题。我认为 AI 应用已经到来， AI  应用的基础设施也需要完善。而作为传统的基础设施程序员（非应用程序员），与其等待 AI 替代自己的工作，不如先让 AI  依赖我的工作，然后希望大家可以和平共存。而 gateway 类型的基础设施在大企业的 AI  治理内，注定是不可缺少的。
+
+
 ### 本书是什么
 
 本书内容包括：Agentgateway 源码分析、深入 Agentgateway 基本原理解构与分析。但不是一本传统的《深入 xyz 源码》类型的书。甚至可以说，我尽了最大的努力少在书中直接贴源码。看源码是掌握实现细节必须的一步，但在书中浏览源码的体验一般非常糟糕，本书更多使用源码导航图来让读者了解实现的全流程，而非迷失于碎片式的源码片段细节当中而忘记全貌。
@@ -95,7 +100,7 @@ and productive life. To my dear wife and our amazing kid – thanks for all your
 :includehidden:
 
 ch0/index
-src-overview/src-overview.md
+codebase-overview/codebase-overview.md
 app-life/app-life.md
 http-proxy/http-proxy.md
 ```
