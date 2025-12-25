@@ -1,6 +1,6 @@
 # Http Proxy 主流程
 
-本质上说， Agentgateway 是一个 Http Proxy ，只是在 HTTP 之上增加了对 AI(LLM/MCP/A2A) 状态化协议的支持。所以分析 HTTP Proxy 层的主流程，就是分析 Agentgateway 的主流程。
+本质上说， Agentgateway 是一个 HTTP Proxy ，只是在 HTTP 之上增加了对 AI(LLM/MCP/A2A) 状态化协议的支持。所以分析 HTTP Proxy 层的主流程，就是分析 Agentgateway 的主流程。
 
 ## Http Proxy 分析示例
 
@@ -152,7 +152,7 @@ curl -v http://localhost:3100/compatible-mode/v1/chat/completions \
 ### Http Proxy 主流程图
 
 
-#### 1. L4 连接 accept 程图
+#### 1. L4 连接 accept 流程图
 
 通过 vscode Debug ，可以看到 Http Proxy 主流程如下图所示：
 
