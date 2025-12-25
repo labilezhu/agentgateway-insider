@@ -14,7 +14,7 @@
 :::{figure-md}
 :class: full-width
 
-<img src="index.assets/agentgateway.drawio.svg" alt="图：Agentgateway 初始化流程">
+<img src="agentgateway.drawio.svg" alt="图：Agentgateway 初始化流程">
 
 *图：Agentgateway 初始化流程*  
 :::
