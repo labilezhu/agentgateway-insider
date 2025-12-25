@@ -23,7 +23,7 @@ to-be-english: true
 复杂的图，建议 `用 draw.io 打开` ：
 - 有的图片提供了 `用 draw.io 打开` 的链接，可以在浏览器用互动性更强的方式浏览:
   - 带 🔗 图标，链接到在线文档和代码行。
-  - 带 ⚓ 图标，链接到本地 vscode 的源码位置。具体见 {ref}`diagram-vscode-code-link-setup` 一节
+  - 带 ⚓ 图标，双击链接到本地 vscode 的源码。具体见 {ref}`diagram-vscode-code-link-setup` 一节
   - 带 💡 或 🛈 图标，鼠标放上去，会弹出 `hover` 窗口，提示更多的信息。如配置文件内容。
 
 如果不喜欢 draw.io 那么直接看 SVG:

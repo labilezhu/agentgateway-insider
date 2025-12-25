@@ -4,7 +4,7 @@
 
 (diagram-vscode-code-link-setup)=
 ## 源码导航图链接到 vscode 源码
-正如我在 {ref}`/ch0/index.md:互动图书` 一节说的。书中的图带 ⚓ 图标，可链接到本地 vscode 的源码位置。读者拥有源码导航图与源码无缝切换的阅读体验。
+正如我在 {ref}`/ch0/index.md:互动图书` 一节说的。书中的图带 ⚓ 图标，双击可链接到本地 vscode 的源码位置。读者拥有源码导航图与源码无缝切换的阅读体验。
 
 因为 Draw.io vscode 插件 的限制，drawio 图文件必须放在 vscode workspace 里一个与本书开发环境相同的路径下，才能正确打开链接到本地源码的位置。我已经把书中的 drawio 图与一些资源文件，放在 https://github.com/labilezhu/pub-diy.git 仓库中。
 
