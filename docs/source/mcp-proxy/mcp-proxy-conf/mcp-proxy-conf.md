@@ -3,7 +3,7 @@
 MCP 作为 AI Agent 生态中重要的协议，Agentgateway 对 MCP 的支持是其核心功能之一。本文记录一些在使用 Agentgateway 代理 MCP 流量时的经验和思考。也是我在调查浏览器连不上 Agentgateway MCP 数天后，总结的经验。
 
 
-[Agentgateway 的官方文档](https://agentgateway.dev/docs/) 有对 MCP 的配置说明，但暂时内容是比较 hello world 级别的简单说明。我的摸索过程，更多是看 agentgateway 源码和看标准规范，包括 3WC 与 MCP 相关的规范。有时间，还需要用 Chrome DevTools debug 一下 javascript 和 network 。
+[Agentgateway 的官方文档](https://agentgateway.dev/docs/) 有对 MCP 的配置说明，但暂时内容是比较 hello world 级别的简单说明。我的摸索过程，更多是看 agentgateway 源码和看标准规范，包括 3WC 与 MCP 相关的规范。有时，还需要用 Chrome DevTools debug 一下 javascript 和 network 。
 
 
 
@@ -120,7 +120,7 @@ binds:
 
 ## 影响访问的安全配置
 
-有话谚语说：“你不理 politics， 但 politics 会来理你”。数字安全也一样：“就算你不理安全策略，安全策略也有可能妨碍你的访问”。很多软件，默认应用的安全策略均设定了一定的访问门槛，Agentgateway 的 MCP 代理也不例外。我一开始就是踩到这个大坑，花了几天时间才跳出来。
+有谚语说：“你不理 politics， 但 politics 会来理你”。数字安全也一样：“就算你不理安全策略，安全策略也有可能妨碍你的访问”。很多软件，默认应用的安全策略均设定了一定的访问门槛，Agentgateway 的 MCP 代理也不例外。我一开始就是踩到这个大坑，花了几天时间才跳出来。
 
 > 注意：由于我不是安全专家，更对前端技术了解有限，以下配置，只作为开发环境使用。生产使用请谨慎。
 
@@ -128,7 +128,7 @@ binds:
 
 > https://agentgateway.dev/docs/configuration/security/cors/
 
-很多 Chat Agent 类型的 Web 应用，考虑到 MCP Server 的网络可达性，以及 OAuth 认证需要用户浏览器参与，会直接在用浏览器访问 MCP Server，而不是后端访问。这时，就是考虑 CORS 访问控制的问题了。其实，包括开发期常用的 [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) 以及 Agentgateway 内置的控制台 A
+很多 Chat Agent 类型的 Web 应用，考虑到 MCP Server 的网络可达性，以及 OAuth 认证需要用户浏览器参与，会直接在用浏览器访问 MCP Server，而不是后端访问。这时，就是考虑 CORS 访问控制的问题了。其实，包括开发期常用的 [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) 以及 Agentgateway 内置的控制台 Playground 。
 
 
 
